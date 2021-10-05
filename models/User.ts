@@ -1,4 +1,5 @@
-import { model, Schema } from "mongoose";
+import { Model, model, models, Schema } from "mongoose";
+import { IUser } from "../types/user";
 
 const userSchema = new Schema({
   name: {
@@ -13,8 +14,12 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const User = model("User", userSchema);
+const User: Model<IUser> = models.User || model<IUser>("User", userSchema);
 
 export default User;
