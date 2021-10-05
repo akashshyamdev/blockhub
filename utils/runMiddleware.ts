@@ -9,3 +9,5 @@ function runMiddleware(req, res, fn) {
     });
   });
 }
+
+export default runMiddleware;
