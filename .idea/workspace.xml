@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c68359fa-de0e-4e92-8621-900023cef595" name="Default Changelist" comment="feat(database): mongoose connect script">
-      <change afterPath="$PROJECT_DIR$/.idea/blockhub.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/global.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/IUser.ts" afterDir="false" />
+    <list default="true" id="c68359fa-de0e-4e92-8621-900023cef595" name="Default Changelist" comment="chore(global): added types for .env">
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/users/signup.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/global.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/api/users/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/users/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/runMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/runMiddleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/user.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +82,8 @@
       <workItem from="1633069945682" duration="426000" />
       <workItem from="1633100896263" duration="7829000" />
       <workItem from="1633180551178" duration="6000" />
+      <workItem from="1633402899875" duration="1679000" />
+      <workItem from="1633496001819" duration="697000" />
     </task>
     <task id="LOCAL-00001" summary="feat: initialised next.js">
       <created>1633165778489</created>
@@ -118,7 +120,35 @@
       <option name="project" value="LOCAL" />
       <updated>1633171610249</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="types(user): typescript support">
+      <created>1633403157873</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633403157873</updated>
+    </task>
+    <task id="LOCAL-00007" summary="chore: idea setup">
+      <created>1633403175136</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1633403175136</updated>
+    </task>
+    <task id="LOCAL-00008" summary="chore(tsconfig.json): included types for env">
+      <created>1633403255689</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1633403255689</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chore(global): added types for .env">
+      <created>1633403303152</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1633403303152</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +172,10 @@
     <MESSAGE value="chore: added .gitignore" />
     <MESSAGE value="chore(deps): added bcrypt" />
     <MESSAGE value="feat(database): mongoose connect script" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(database): mongoose connect script" />
+    <MESSAGE value="types(user): typescript support" />
+    <MESSAGE value="chore: idea setup" />
+    <MESSAGE value="chore(tsconfig.json): included types for env" />
+    <MESSAGE value="chore(global): added types for .env" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(global): added types for .env" />
   </component>
 </project>
