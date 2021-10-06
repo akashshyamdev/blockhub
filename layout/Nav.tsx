@@ -6,11 +6,17 @@ export default function Nav() {
   return (
     <header>
       <nav>
-        <ul>
+        <ul className={"flex flex-row"}>
           <li>
             <Link href={"/notifications"}>
-              <BellIcon className={"w-10 cursor-pointer h-10"} />
+              <a>
+                <BellIcon className={"w-10 cursor-pointer h-10"} />
+              </a>
             </Link>
+          </li>
+
+          <li>
+            <Link href={"/auth/signup"}>Sign up</Link>
           </li>
         </ul>
       </nav>
