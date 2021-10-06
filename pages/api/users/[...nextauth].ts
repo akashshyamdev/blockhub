@@ -8,6 +8,10 @@ export default NextAuth({
     jwt: true,
   },
   providers: [
+    Providers.Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
     Providers.Credentials({
       async authorize(credentials: { email: string; password: string }) {
         connectDB();
