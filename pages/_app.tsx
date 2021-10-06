@@ -6,6 +6,7 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <Provider>
+
       <Nav />
       <Component {...pageProps} />
     </Provider>

@@ -1,4 +1,5 @@
-import { signIn, signOut, useSession } from "next-auth/client";
+import OAuth from "@components/OAuth/OAuth";
+import { signOut, useSession } from "next-auth/client";
 import Head from "next/head";
 import React from "react";
 
@@ -6,21 +7,13 @@ export default function Signup() {
   const [session, loading] = useSession();
 
   return (
-    <main>
+    <main className={"bg-gray-50 h-full"}>
       <Head>
         <title>Signup | Blockhub</title>
       </Head>
 
       <div>
-        {loading && <p>Loading..</p>}
-
-        {!session && (
-          <>
-            <button onClick={() => signIn("google", { callbackUrl: "http://localhost:3000/" })}>
-              Sign in
-            </button>
-          </>
-        )}
+        {!session && <OAuth />}
 
         {session && (
           <>
