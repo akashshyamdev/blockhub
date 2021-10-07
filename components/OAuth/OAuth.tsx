@@ -1,7 +1,12 @@
 import { signIn } from "next-auth/client";
 import Image from "next/image";
+import classes from "./OAuth.module.scss";
 
-export default function OAuth() {
+export interface OAuthProps {
+  containerClass?: string;
+}
+
+export default function OAuth({ containerClass }: OAuthProps) {
   const googleAuth = () => signIn("google", { callbackUrl: "http://localhost:3000/" });
 
   const facebookAuth = () => signIn("facebook", { callbackUrl: "http://localhost:3000/" });
@@ -9,28 +14,19 @@ export default function OAuth() {
   const twitterAuth = () => signIn("twitter", { callbackUrl: "http://localhost:3000/" });
 
   return (
-    <div>
-      <button
-        className={"flex flex-row items-center px-7 py-5 border border-1 gap-x-3"}
-        onClick={googleAuth}
-      >
-        <Image src={"/assets/svg/google.svg"} width={"32"} height={"32"} />
+    <div className={`${containerClass} ${classes.oauth}`}>
+      <button className={classes.oauth__button} onClick={googleAuth}>
+        <Image src={"/assets/svg/google.svg"} width={"28"} height={"28"} />
         Continue With Google
       </button>
 
-      <button
-        className={"flex flex-row items-center px-7 py-5 border border-1 gap-x-3"}
-        onClick={facebookAuth}
-      >
-        <Image src={"/assets/svg/facebook.svg"} width={"32"} height={"32"} />
+      <button className={classes.oauth__button} onClick={facebookAuth}>
+        <Image src={"/assets/svg/facebook.svg"} width={"28"} height={"28"} />
         Continue With Facebook
       </button>
 
-      <button
-        className={"flex flex-row items-center px-7 py-5 border border-1 gap-x-3"}
-        onClick={twitterAuth}
-      >
-        <Image src={"/assets/svg/twitter.svg"} width={"32"} height={"32"} />
+      <button className={classes.oauth__button} onClick={twitterAuth}>
+        <Image src={"/assets/svg/twitter.svg"} width={"28"} height={"28"} />
         Continue With Twitter
       </button>
     </div>

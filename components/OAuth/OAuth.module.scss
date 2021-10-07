@@ -1,0 +1,7 @@
+.oauth {
+  @apply grid grid-cols-1 gap-y-6 font-sans;
+
+  &__button {
+    @apply flex flex-row items-center px-5 py-3 border border-gray-400 hover:border-gray-700 gap-x-3 w-72 rounded-full transition duration-200 ease-out text-gray-700;
+  }
+}
