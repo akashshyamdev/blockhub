@@ -10,7 +10,7 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={"anonymous"} />
           <link
-            href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Hind+Madurai&family=Poppins&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Open+Sans&family=Poppins&display=swap"
             rel="stylesheet"
           />
         </Head>
