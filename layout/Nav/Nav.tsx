@@ -1,4 +1,5 @@
-import { BellIcon } from "@heroicons/react/outline";
+import Button from "@components/Button/Button";
+import { BellIcon, BookmarkIcon, SearchIcon } from "@heroicons/react/outline";
 import { signOut, useSession } from "next-auth/client";
 import Link from "next/link";
 import React from "react";
@@ -6,25 +7,59 @@ import React from "react";
 export default function Nav() {
   const [session] = useSession();
 
+  console.log(session);
+
   const logout = () => signOut();
 
-  return (
-    <header className={""}>
-      <nav>
-        <ul className={"flex flex-row"}>
-          <li>
-            <Link href={"/notifications"}>
-              <a>
-                <BellIcon className={"w-10 cursor-pointer h-10"} />
-              </a>
-            </Link>
-          </li>
+  const renderLoggedInItems = () => {
+    return (
+      <>
+        <li>
+          <SearchIcon className={"w-6 hero-icon h-6"} />
+        </li>
 
+        <li>
+          <Link href={"/bookmarks"}>
+            <a>
+              <BookmarkIcon className={"w-6 hero-icon h-6"} />
+            </a>
+          </Link>
+        </li>
+
+        <li>
+          <Link href={"/notifications"}>
+            <a>
+              <BellIcon className={"w-6 hero-icon h-6"} />
+            </a>
+          </Link>
+        </li>
+      </>
+    );
+  };
+
+  return (
+    <header
+      className={
+        "bg-white flex flex-row justify-between items-center px-20 py-7 filter drop-shadow-md"
+      }
+    >
+      <Link href={"/"}>
+        <a className={"font-serif text-2xl"}>Blockhub</a>
+      </Link>
+
+      <nav className={"flex flex-row items-center gap-x-8"}>
+        {/* Nav Icons */}
+        <ul className={"flex flex-row items-center text-gray-600 gap-x-5"}>
+          {renderLoggedInItems()}
+        </ul>
+
+        {/* CTAs */}
+        <ul className={"flex flex-row items-center"}>
           <li>
             {!session ? (
-              <Link href={"/auth/signup"}>Sign up</Link>
+              <Button href={"/auth/signup"}>Signup</Button>
             ) : (
-              <button onClick={logout}>Logout</button>
+              <Button onClick={logout}>Logout</Button>
             )}
           </li>
         </ul>
