@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hero-icon {
+  path {
+    stroke-width: 1;
+  }
+}
