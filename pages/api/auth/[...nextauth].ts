@@ -17,9 +17,13 @@ export default NextAuth({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
+    Providers.GitHub({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
     Providers.Credentials({
       async authorize(credentials: { email: string; password: string }) {
-        connectDB();
+        await connectDB();
 
         const user = await User.findOne({ email: credentials.email });
         const isPasswordValid = await user.comparePasswords(credentials.password, user.password);
