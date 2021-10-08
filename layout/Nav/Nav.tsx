@@ -54,7 +54,7 @@ export default function Nav() {
         </ul>
 
         {/* CTAs */}
-        <ul className={"flex flex-row items-center"}>
+        <ul className={"flex flex-row items-center ml-8"}>
           <li>
             {!session ? (
               <Button href={"/auth/signup"}>Signup</Button>
