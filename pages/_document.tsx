@@ -17,6 +17,8 @@ class MyDocument extends Document {
 
         <body>
           <Main />
+          <div id="modal-root" />
+
           <NextScript />
         </body>
       </Html>
