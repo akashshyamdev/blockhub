@@ -1,15 +1,19 @@
 .modal {
-  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-2/3 bg-white rounded px-20 py-10;
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/5 bg-white rounded px-20 py-10;
 
   &__backdrop {
     @apply absolute top-0 left-0 w-screen h-screen bg-black bg-opacity-50;
   }
 
   &__close {
-    @apply flex flex-row justify-end;
+    @apply absolute top-10 right-10;
   }
 
   &__heading {
-    @apply w-2/3 mx-auto;
+    @apply w-2/3 mx-auto mt-10;
+  }
+
+  &__content {
+    @apply flex flex-row justify-center;
   }
 }
