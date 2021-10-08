@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.4",
+    "@next-auth/mongodb-adapter": "^0.0.2-next.281",
     "bcrypt": "^5.0.1",
     "mongoose": "^6.0.8",
     "next": "11.1.2",
-    "next-auth": "^3.29.0",
+    "next-auth": "^4.0.0-beta.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.42.1"
@@ -37,6 +38,6 @@
     "tailwindcss": "^2.2.16"
   },
   "optionalDependencies": {
-    "mongodb": "^3.5.9"
+    "mongodb": "^4.1.3"
   }
 }
