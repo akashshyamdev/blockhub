@@ -6,6 +6,7 @@ export interface ButtonProps {
   href?: string;
   children: string;
   customClass?: string;
+  type?: HTMLButtonElement["type"];
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
