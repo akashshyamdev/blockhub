@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.4",
-    "@testing-library/jest-dom": "^5.14.1",
     "bcrypt": "^5.0.1",
     "mongoose": "^6.0.8",
     "next": "11.1.2",
@@ -20,7 +19,9 @@
     "sass": "^1.42.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.2.1",
     "autoprefixer": "^10.3.7",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
