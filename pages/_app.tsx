@@ -1,14 +1,14 @@
 import Nav from "@layout/Nav/Nav";
-import { Provider } from "next-auth/client";
-import "tailwindcss/tailwind.css";
 import "@styles/globals.scss";
+import { SessionProvider } from "next-auth/react";
+import "tailwindcss/tailwind.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider>
+    <SessionProvider>
       <Nav />
       <Component {...pageProps} />
-    </Provider>
+    </SessionProvider>
   );
 }
 
