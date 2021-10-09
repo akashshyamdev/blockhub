@@ -2,12 +2,13 @@ import Button from "@components/Button/Button";
 import Modal from "@components/Modal/Modal";
 import OAuth from "@components/OAuth/OAuth";
 import { BellIcon, BookmarkIcon, SearchIcon } from "@heroicons/react/outline";
-import { signOut, useSession } from "next-auth/client";
+import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
 export default function Nav() {
-  const [session] = useSession();
+  const { data } = useSession();
 
   const [open, setOpen] = useState(false);
 
@@ -45,7 +46,7 @@ export default function Nav() {
     <>
       <header
         className={
-          "bg-white flex flex-row justify-between items-center px-20 py-7 filter drop-shadow-md"
+          "bg-white flex flex-row justify-between items-center px-20 py-4 filter drop-shadow-md"
         }
       >
         <Link href={"/"}>
@@ -53,18 +54,20 @@ export default function Nav() {
         </Link>
 
         <nav className={"flex flex-row items-center gap-x-8"}>
-          {/* Nav Icons */}
           <ul className={"flex flex-row items-center text-gray-600 gap-x-5"}>
             {renderLoggedInItems()}
-          </ul>
-
-          {/* CTAs */}
-          <ul className={"flex flex-row items-center ml-8"}>
             <li>
-              {!session ? (
+              {!data ? (
                 <Button onClick={openModal}>Signup</Button>
               ) : (
-                <Button onClick={logout}>Logout</Button>
+                <div>
+                  <Image
+                    src={data.user.image}
+                    width={"36"}
+                    height={"36"}
+                    className={"rounded-full"}
+                  />
+                </div>
               )}
             </li>
           </ul>
