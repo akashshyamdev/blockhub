@@ -1,0 +1,58 @@
+.preview {
+  @apply text-gray-700 font-sans p-7;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply pb-3;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-lg;
+  }
+
+  h6 {
+    @apply text-gray-700;
+  }
+
+  blockquote {
+    @apply relative pl-5;
+
+    &::before {
+      content: "";
+      @apply absolute block top-0 left-0 h-full w-1 bg-red-200;
+    }
+  }
+
+  ol,
+  ul {
+    @apply pl-5;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+}
