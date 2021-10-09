@@ -46,7 +46,7 @@ export default function Nav() {
     <>
       <header
         className={
-          "bg-white flex flex-row justify-between items-center px-20 py-4 filter drop-shadow-md"
+          "bg-white h-20 flex flex-row justify-between items-center px-20 py-4 filter drop-shadow-md"
         }
       >
         <Link href={"/"}>
