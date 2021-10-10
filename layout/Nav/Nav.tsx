@@ -38,8 +38,18 @@ export default function Nav() {
             </a>
           </Link>
         </li>
+
+        <li>
+          <div>
+            <Image src={data.user.image} width={"36"} height={"36"} className={"rounded-full"} />
+          </div>
+        </li>
       </>
     );
+  };
+
+  const renderLoggedOutItems = () => {
+    return <Button onClick={openModal}>Signup</Button>;
   };
 
   return (
@@ -55,21 +65,7 @@ export default function Nav() {
 
         <nav className={"flex flex-row items-center gap-x-8"}>
           <ul className={"flex flex-row items-center text-gray-600 gap-x-5"}>
-            {renderLoggedInItems()}
-            <li>
-              {!data ? (
-                <Button onClick={openModal}>Signup</Button>
-              ) : (
-                <div>
-                  <Image
-                    src={data.user.image}
-                    width={"36"}
-                    height={"36"}
-                    className={"rounded-full"}
-                  />
-                </div>
-              )}
-            </li>
+            {!data ? renderLoggedOutItems() : renderLoggedInItems()}
           </ul>
         </nav>
       </header>
