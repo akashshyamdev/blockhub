@@ -12,3 +12,7 @@ body {
     stroke-width: 1;
   }
 }
+
+.full {
+  height: calc(100vh - theme("spacing.20"));
+}
