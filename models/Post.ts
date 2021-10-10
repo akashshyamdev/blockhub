@@ -11,6 +11,10 @@ const postSchema = new Schema(
       type: String,
       required: [true, "Please specify a sub title"],
     },
+    content: {
+      type: String,
+      required: [true, "Please specify markdown content"],
+    },
     user: {
       type: Types.ObjectId,
       ref: "User",
