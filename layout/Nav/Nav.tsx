@@ -1,3 +1,4 @@
+import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import Button from "@components/Button/Button";
 import Modal from "@components/Modal/Modal";
 import OAuth from "@components/OAuth/OAuth";
@@ -40,9 +41,19 @@ export default function Nav() {
         </li>
 
         <li>
-          <div>
-            <Image src={data.user.image} width={"36"} height={"36"} className={"rounded-full"} />
-          </div>
+          <Menu>
+            <MenuButton>
+              <Image src={data.user.image} width={"36"} height={"36"} className={"rounded-full"} />
+            </MenuButton>
+
+            <MenuList>
+              <MenuItem onClick={logout}>Logout</MenuItem>
+            </MenuList>
+          </Menu>
+
+          {/*<div>*/}
+          {/*  <Image src={data.user.image} width={"36"} height={"36"} className={"rounded-full"} />*/}
+          {/*</div>*/}
         </li>
       </>
     );
