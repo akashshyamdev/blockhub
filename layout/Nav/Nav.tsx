@@ -55,19 +55,19 @@ export default function Nav() {
   return (
     <>
       <header
-        className={
-          "bg-white h-20 flex flex-row justify-between items-center px-20 py-4 filter drop-shadow-md"
-        }
+        className={"bg-white flex flex-row justify-center items-center h-20 filter drop-shadow-md"}
       >
-        <Link href={"/"}>
-          <a className={"font-serif text-2xl"}>Blockhub</a>
-        </Link>
+        <div className={"flex flex-row w-8/12 justify-between items-center"}>
+          <Link href={"/"}>
+            <a className={"font-serif text-2xl"}>Blockhub</a>
+          </Link>
 
-        <nav className={"flex flex-row items-center gap-x-8"}>
-          <ul className={"flex flex-row items-center text-gray-600 gap-x-5"}>
-            {!data ? renderLoggedOutItems() : renderLoggedInItems()}
-          </ul>
-        </nav>
+          <nav className={"flex flex-row items-center gap-x-8"}>
+            <ul className={"flex flex-row items-center text-gray-600 gap-x-5"}>
+              {!data ? renderLoggedOutItems() : renderLoggedInItems()}
+            </ul>
+          </nav>
+        </div>
       </header>
 
       <Modal
