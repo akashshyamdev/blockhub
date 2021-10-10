@@ -1,3 +1,4 @@
+import Button from "@components/Button/Button";
 import classes from "@styles/components/preview.module.scss";
 import axios from "axios";
 import { useSession } from "next-auth/react";
@@ -15,7 +16,12 @@ function CreatePost() {
   const [result, setResult] = useState("");
 
   const createPost = async () => {
-    const post = await axios.post(`/api/posts/`, { title, subTitle, markdown });
+    const post = await axios.post(`/api/posts/`, {
+      title,
+      subTitle,
+      content: markdown,
+      email: data?.user?.email,
+    });
 
     console.log(post);
   };
@@ -49,7 +55,7 @@ function CreatePost() {
         <div className={"grid w-full h-full grid-cols-2"}>
           <div>
             <textarea
-              className={`w-full p-7 h-full bg-gray-100 rounded rounded-r-none outline-none`}
+              className={`w-full p-7 h-full resize-none bg-gray-100 rounded rounded-r-none outline-none`}
               name="editor"
               value={markdown}
               onChange={onChange}
@@ -62,6 +68,10 @@ function CreatePost() {
             id="result"
             dangerouslySetInnerHTML={{ __html: result }}
           />
+        </div>
+
+        <div className={"mt-8 flex w-full flex-row justify-start"}>
+          <Button onClick={createPost}>Create Post</Button>
         </div>
       </div>
     </main>
