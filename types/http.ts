@@ -5,11 +5,11 @@ export type HandlerFunction = (req: NextApiRequest, res: NextApiResponse) => voi
 
 // Custom Handler
 export type Handler = {
-  get: Function;
-  post: Function;
-  patch: Function;
-  put: Function;
-  delete: Function;
+  get: HandlerFunction;
+  post: HandlerFunction;
+  patch: HandlerFunction;
+  put: HandlerFunction;
+  delete: HandlerFunction;
 };
 
 export type IResponseSuccess<T> = AxiosResponse<{ data: T }>;
