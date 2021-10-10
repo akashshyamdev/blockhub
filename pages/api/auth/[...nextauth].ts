@@ -23,7 +23,14 @@ export default NextAuth({
       clientSecret: process.env.TWITTER_CLIENT_SECRET,
     }),
   ],
-  callbacks: {},
+  callbacks: {
+    async session({ session, token, user }) {
+      session.id = user?.id;
+      session.accessToken = token.accessToken;
+
+      return session;
+    },
+  },
   secret: process.env.JWT_SECRET,
   session: {
     jwt: true,
