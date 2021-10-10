@@ -2,10 +2,12 @@ import Button from "@components/Button/Button";
 import classes from "@styles/components/preview.module.scss";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import React, { ChangeEvent, useState } from "react";
 import snarkdown from "snarkdown";
 
 function CreatePost() {
+  const router = useRouter();
   const { data } = useSession();
 
   // Form
@@ -24,6 +26,8 @@ function CreatePost() {
     });
 
     console.log(post);
+
+    router.push('/');
   };
 
   const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {

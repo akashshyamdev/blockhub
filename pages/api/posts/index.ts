@@ -7,7 +7,6 @@ const createPost = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { title, subTitle, email, content } = req.body;
 
-
     const user = await User.findOne({ email });
 
     const post = await Post.create({ title, subTitle, content, user: user._id });
@@ -27,5 +26,7 @@ const createPost = async (req: NextApiRequest, res: NextApiResponse) => {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   await connectDB();
 
-  if (req.method === "POST") createPost(req, res);
+  if (req.method === "POST") await createPost(req, res);
+
+  res.status(404).json({ message: "There is no route here" });
 }
