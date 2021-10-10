@@ -3,6 +3,7 @@ export default function errorHandler(err, res) {
     // custom application error
     const is404 = err.toLowerCase().endsWith("not found");
     const statusCode = is404 ? 404 : 400;
+
     return res.status(statusCode).json({ message: err });
   }
 
