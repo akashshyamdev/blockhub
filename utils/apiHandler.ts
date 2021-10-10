@@ -3,7 +3,7 @@ import { connectDB } from "@middleware/mongoose";
 import errorHandler from "@utils/errorHandler";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default function apiHandler(handler: Handler) {
+export default function apiHandler(handler: Partial<Handler>) {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     const method = req.method.toLowerCase();
 
