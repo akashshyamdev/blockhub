@@ -41,12 +41,18 @@ export default function Nav() {
         </li>
 
         <li>
-          <Menu>
+          <Menu autoSelect={false}>
             <MenuButton>
               <Image src={data.user.image} width={"36"} height={"36"} className={"rounded-full"} />
             </MenuButton>
 
             <MenuList>
+              <MenuItem>
+                <Link href={"/posts/create"}>
+                  <a>Create Post</a>
+                </Link>
+              </MenuItem>
+
               <MenuItem onClick={logout}>Logout</MenuItem>
             </MenuList>
           </Menu>
