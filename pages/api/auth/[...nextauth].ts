@@ -25,14 +25,13 @@ export default NextAuth({
   ],
   callbacks: {
     jwt({ token, user }) {
-      if (user) token.id = user.id; // User is only available on sign-in
+      if (user) token.id = user.id;
 
       return token;
     },
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       // @ts-ignore
       session.user.id = token.id;
-      session.accessToken = token.accessToken;
 
       return session;
     },
