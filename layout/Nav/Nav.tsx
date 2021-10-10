@@ -50,10 +50,6 @@ export default function Nav() {
               <MenuItem onClick={logout}>Logout</MenuItem>
             </MenuList>
           </Menu>
-
-          {/*<div>*/}
-          {/*  <Image src={data.user.image} width={"36"} height={"36"} className={"rounded-full"} />*/}
-          {/*</div>*/}
         </li>
       </>
     );
