@@ -1,5 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import Nav from "@layout/Nav/Nav";
+import Layout from "@layout/Layout/Layout";
 import "@styles/globals.scss";
 import { SessionProvider } from "next-auth/react";
 import "tailwindcss/tailwind.css";
@@ -8,8 +8,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <SessionProvider>
       <ChakraProvider>
-        <Nav />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ChakraProvider>
     </SessionProvider>
   );
