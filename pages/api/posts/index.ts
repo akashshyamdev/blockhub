@@ -3,7 +3,7 @@ import User from "@models/User";
 import apiHandler from "@utils/apiHandler";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const getAllPosts = async () => {
+export const getAllPosts = async () => {
   return Post.find();
 };
 
