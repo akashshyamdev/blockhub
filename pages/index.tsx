@@ -20,7 +20,7 @@ export default function Home({ posts }: HomeProps) {
 
           return (
             <Link href={{ pathname: `/posts/[slug]`, query: { slug: post.slug } }} key={post._id}>
-              <a className={classes.post}>
+              <article className={classes.post}>
                 <h3 className={classes.post__title}>{post.title}</h3>
                 <h5 className={classes.post__subtitle}>{post.subTitle}</h5>
 
@@ -33,7 +33,7 @@ export default function Home({ posts }: HomeProps) {
 
                   <p>{time.wordCount} words</p>
                 </div>
-              </a>
+              </article>
             </Link>
           );
         })}
