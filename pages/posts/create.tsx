@@ -1,3 +1,4 @@
+import { I18n } from "@aws-amplify/core";
 import Button from "@components/Button/Button";
 import classes from "@styles/components/preview.module.scss";
 import axios from "axios";
@@ -27,7 +28,7 @@ function CreatePost() {
 
     console.log(post);
 
-    router.push('/');
+    router.push("/");
   };
 
   const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -45,14 +46,14 @@ function CreatePost() {
             type="text"
             className={"w-full text-5xl rounded px-10 py-6 bg-gray-100"}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder={"The Title Goes Here..."}
+            placeholder={I18n.get("createPostTitlePlaceholder")}
           />
 
           <input
             type="text"
             className={"w-full text-xl mt-3 rounded px-10 py-6 bg-gray-100"}
             onChange={(e) => setSubTitle(e.target.value)}
-            placeholder={"The Sub Title Goes Here..."}
+            placeholder={I18n.get("createPostSubTitlePlaceholder")}
           />
         </div>
 
@@ -64,6 +65,7 @@ function CreatePost() {
               value={markdown}
               onChange={onChange}
               id="editor"
+              placeholder={I18n.get("createPostContentPlaceholder")}
             />
           </div>
 
@@ -75,7 +77,7 @@ function CreatePost() {
         </div>
 
         <div className={"mt-8 flex w-full flex-row justify-start"}>
-          <Button onClick={createPost}>Create Post</Button>
+          <Button onClick={createPost}>{I18n.get("createPost")}</Button>
         </div>
       </div>
     </main>
