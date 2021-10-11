@@ -1,0 +1,19 @@
+.post {
+  @apply block w-full bg-gray-100 rounded my-1 px-10 py-7 text-gray-700;
+
+  &__title {
+    @apply text-3xl font-medium;
+  }
+
+  &__subtitle {
+    @apply text-xl text-gray-500 mt-2;
+  }
+
+  &__stats {
+    @apply flex flex-row items-center gap-x-3 text-gray-500 text-base font-light mt-3;
+  }
+
+  &__separator {
+    @apply bg-gray-300 h-2 w-2 rounded-full;
+  }
+}
