@@ -21,11 +21,11 @@ export default function PostDetails({ post }: PostDetailsProps) {
           {post.title}
         </Heading>
 
-        <Heading family={"sans"} className={"mb-8"} variant={"h3"}>
+        <Heading family={"sans"} className={"mb-10"} variant={"h3"}>
           {post.subTitle}
         </Heading>
 
-        <div className={"flex flex-row gap-x-3 items-center"}>
+        <div className={"flex flex-row gap-x-3 items-center mb-14"}>
           <div>
             <Image src={post.user.image} width={"44"} height={"44"} className={"rounded-full"} />
           </div>
@@ -36,7 +36,10 @@ export default function PostDetails({ post }: PostDetailsProps) {
           </div>
         </div>
 
-        <div dangerouslySetInnerHTML={{ __html: snarkdown(post.content) }} />
+        <div
+          className={"font-serif text-xl"}
+          dangerouslySetInnerHTML={{ __html: snarkdown(post.content) }}
+        />
       </article>
     </main>
   );
