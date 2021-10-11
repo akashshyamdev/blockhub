@@ -8,4 +8,5 @@ export interface IPost extends Document {
   name: string;
   email: string;
   user: IUser;
+  createdAt: number;
 }
