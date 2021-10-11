@@ -1,5 +1,6 @@
 import { IPost } from "@customTypes/post";
 import { Model, model, models, Schema, Types } from "mongoose";
+import slugify from "slugify";
 
 const postSchema = new Schema(
   {
@@ -26,6 +27,10 @@ const postSchema = new Schema(
     timestamps: true,
   }
 );
+
+postSchema.virtuals("slug").get(function () {
+  return slugify(this.title, { replacement: "-", lower: true });
+});
 
 const Post: Model<IPost> = models.Post || model<IPost>("Post", postSchema);
 
