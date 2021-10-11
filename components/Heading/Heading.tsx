@@ -7,7 +7,7 @@ export interface HeadingProps {
   family?: "sans" | "serif";
   align?: "left" | "center" | "right";
   variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  shade: "50" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";
+  shade?: "50" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";
 }
 
 export default function Heading({
@@ -18,15 +18,11 @@ export default function Heading({
   variant,
   shade,
 }: HeadingProps) {
+  const fixedClasses = `${classes.heading} text-${align}  text-gray-${shade} font-${family} ${className}`;
+
   return (
     <>
-      {variant === "h1" && (
-        <h1
-          className={`text-${align} ${classes.h1} ${classes.heading} text-gray-${shade} font-${family} ${className}`}
-        >
-          {children}
-        </h1>
-      )}
+      {variant === "h1" && <h1 className={`${classes.h1}`}>{children}</h1>}
 
       {variant === "h2" && (
         <h2
