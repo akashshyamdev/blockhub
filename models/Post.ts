@@ -28,7 +28,7 @@ const postSchema = new Schema(
   }
 );
 
-postSchema.virtuals("slug").get(function () {
+postSchema.virtual("slug").get(function () {
   return slugify(this.title, { replacement: "-", lower: true });
 });
 
