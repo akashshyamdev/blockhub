@@ -19,7 +19,7 @@ function CreatePost() {
   const [result, setResult] = useState("");
 
   const createPost = async () => {
-    const post = await axios.post(`/api/posts/`, {
+    await axios.post(`/api/posts/`, {
       title,
       subTitle,
       content: markdown,
