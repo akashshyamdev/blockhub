@@ -5,12 +5,14 @@ module.exports = {
     fontFamily: {
       display: ["Poppins", "sans-serif"],
       sans: ["Open Sans", "sans-serif"],
-      serif: ["Gilda Display", "serif"]
+      serif: ["Gilda Display", "serif"],
     },
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      opacity: ["disabled"],
+    },
   },
   plugins: [],
 };
