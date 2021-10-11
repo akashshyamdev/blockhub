@@ -1,8 +1,10 @@
 import Heading from "@components/Heading/Heading";
 import { IResponseSuccess } from "@customTypes/http";
 import { IPost } from "@customTypes/post";
+import { calculateReadingTime } from "@lib/reading";
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Image from "next/image";
 import snarkdown from "snarkdown";
 
 export interface PostDetailsProps {
@@ -10,11 +12,11 @@ export interface PostDetailsProps {
 }
 
 export default function PostDetails({ post }: PostDetailsProps) {
-  console.log(post);
+  const time = calculateReadingTime(post);
 
   return (
     <main className={"flex flex-row justify-center items-center py-10"}>
-      <div className="w-5/12">
+      <article className="w-5/12">
         <Heading className={"mb-3 leading-normal font-medium"} shade={"800"} variant={"h1"}>
           {post.title}
         </Heading>
@@ -23,8 +25,19 @@ export default function PostDetails({ post }: PostDetailsProps) {
           {post.subTitle}
         </Heading>
 
+        <div className={"flex flex-row gap-x-3 items-center"}>
+          <div>
+            <Image src={post.user.image} width={"44"} height={"44"} className={"rounded-full"} />
+          </div>
+
+          <div className={""}>
+            <p>{post.user.name}</p>
+            <p className={"text-gray-400"}>{time.readingTime} min read</p>
+          </div>
+        </div>
+
         <div dangerouslySetInnerHTML={{ __html: snarkdown(post.content) }} />
-      </div>
+      </article>
     </main>
   );
 }
