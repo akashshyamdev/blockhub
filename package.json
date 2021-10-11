@@ -17,6 +17,7 @@
     "@next-auth/mongodb-adapter": "^0.0.2-next.281",
     "axios": "^0.22.0",
     "bcrypt": "^5.0.1",
+    "date-fns": "^2.25.0",
     "framer-motion": "^4.1.17",
     "mongoose": "^6.0.8",
     "next": "11.1.2",
@@ -24,6 +25,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.42.1",
+    "slugify": "^1.6.1",
     "snarkdown": "^2.0.0"
   },
   "devDependencies": {
