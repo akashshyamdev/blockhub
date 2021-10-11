@@ -9,14 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/core": "^4.3.2",
+    "@chakra-ui/react": "^1.6.9",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
     "@heroicons/react": "^1.0.4",
+    "@next-auth/mongodb-adapter": "^0.0.2-next.281",
+    "axios": "^0.22.0",
     "bcrypt": "^5.0.1",
+    "date-fns": "^2.25.0",
+    "framer-motion": "^4.1.17",
     "mongoose": "^6.0.8",
     "next": "11.1.2",
-    "next-auth": "^3.29.0",
+    "next-auth": "^4.0.0-beta.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.42.1"
+    "sass": "^1.42.1",
+    "slugify": "^1.6.1",
+    "snarkdown": "^2.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -37,6 +47,6 @@
     "tailwindcss": "^2.2.16"
   },
   "optionalDependencies": {
-    "mongodb": "^3.5.9"
+    "mongodb": "^4.1.3"
   }
 }

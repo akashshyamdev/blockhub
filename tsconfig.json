@@ -7,11 +7,12 @@
       "@layout/*": ["layout/*"],
       "@models/*": ["models/*"],
       "@styles/*": ["styles/*"],
-      "@types/*": ["types/*"],
-      "@utils/*": ["utils/*"]
+      "@customTypes/*": ["types/*"],
+      "@utils/*": ["utils/*"],
+      "@lib/*": ["lib/*"]
     },
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,

@@ -6,6 +6,10 @@ namespace NodeJS {
     DB_USER: string;
     DB_PASSWORD: string;
 
+    SERVER_URL: string;
+
+    JWT_SECRET: string;
+
     GOOGLE_CLIENT_ID: string;
     GOOGLE_CLIENT_SECRET: string;
 

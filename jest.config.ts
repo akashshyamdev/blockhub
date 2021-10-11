@@ -16,7 +16,7 @@ module.exports = {
     "^@layout/(*.)$": "<rootdir>/layout/$1",
     "^@models/(*.)$": "<rootdir>/models/$1",
     "^@styles/(*.)$": "<rootdir>/styles/$1",
-    "^@types/(*.)$": "<rootdir>/types/$1",
+    "^@customTypes/(*.)$": "<rootdir>/types/$1",
     "^@utils/(*.)$": "<rootdir>/utils/$1",
   },
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],

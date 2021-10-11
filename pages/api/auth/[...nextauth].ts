@@ -1,47 +1,43 @@
+import clientPromise from "@middleware/mongodb";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
-
-const MONGODB_URI = process.env.DB_URL.replace("<user>", process.env.DB_USER).replace(
-  "<password>",
-  process.env.DB_PASSWORD
-);
+import FacebookProvider from "next-auth/providers/facebook";
+import GoogleProvider from "next-auth/providers/google";
+import TwitterProvider from "next-auth/providers/twitter";
 
 export default NextAuth({
-  session: {
-    jwt: true,
-  },
+  adapter: MongoDBAdapter({
+    db: (await clientPromise).db("dev"),
+  }),
   providers: [
-    Providers.Facebook({
+    FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     }),
-    Providers.Google({
+    GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
-    Providers.Twitter({
+    TwitterProvider({
       clientId: process.env.TWITTER_CLIENT_ID,
       clientSecret: process.env.TWITTER_CLIENT_SECRET,
     }),
   ],
-  database: MONGODB_URI,
   callbacks: {
-    session: async (session, user) => {
-      session.id = user.id;
-      return Promise.resolve(session);
+    jwt({ token, user }) {
+      if (user) token.id = user.id;
+
+      return token;
+    },
+    async session({ session, token }) {
+      // @ts-ignore
+      session.user.id = token.id;
+
+      return session;
     },
   },
+  secret: process.env.JWT_SECRET,
+  session: {
+    jwt: true,
+  },
 });
-
-// Providers.Credentials({
-//   async authorize(credentials: { email: string; password: string }) {
-//     await connectDB();
-//
-//     const user = await User.findOne({ email: credentials.email });
-//     const isPasswordValid = await user.comparePasswords(credentials.password, user.password);
-//
-//     if (!user || !isPasswordValid) throw new Error("Email or password is incorrect!");
-//
-//     return { id: user._id };
-//   },
-// }),

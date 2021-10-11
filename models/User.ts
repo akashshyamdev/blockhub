@@ -1,6 +1,6 @@
+import { IUser } from "@customTypes/user";
 import bcrypt from "bcrypt";
 import { Model, model, models, Schema } from "mongoose";
-import { IUser } from "../types/user";
 
 const userSchema = new Schema({
   name: {
@@ -26,8 +26,7 @@ userSchema.pre("save", function () {
 });
 
 userSchema.methods.correctPassword = async function (plainPassword, hashedPassword) {
-  console.log(this.password);
-  return await bcrypt.compare(plainPassword, hashedPassword);
+  return bcrypt.compare(plainPassword, hashedPassword);
 };
 
 const User: Model<IUser> = models.User || model<IUser>("User", userSchema);
