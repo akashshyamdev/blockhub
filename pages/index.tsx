@@ -19,7 +19,7 @@ export default function Home({ posts }: HomeProps) {
           const time = calculateReadingTime(post);
 
           return (
-            <Link href={`/posts/${post}/${post.slug}`} key={post._id}>
+            <Link href={{ pathname: `/posts/[slug]`, query: { slug: post.slug } }} key={post._id}>
               <a className={classes.post}>
                 <h3 className={classes.post__title}>{post.title}</h3>
                 <h5 className={classes.post__subtitle}>{post.subTitle}</h5>
