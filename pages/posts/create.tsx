@@ -26,8 +26,6 @@ function CreatePost() {
       email: data?.user?.email,
     });
 
-    console.log(post);
-
     router.push("/");
   };
 

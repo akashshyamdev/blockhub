@@ -43,7 +43,7 @@ export default function Home({ posts }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts: IResponseSuccess<IPost> = await axios.get("http://localhost:3000/api/posts");
+  const posts: IResponseSuccess<IPost> = await axios.get(`${process.env.SERVER_URL}/api/posts`);
 
   return { props: { posts: posts.data.data }, revalidate: 10 };
 };
