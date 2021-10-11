@@ -14,9 +14,12 @@ export default function PostDetails({ post }: PostDetailsProps) {
 
   return (
     <main className={"flex flex-row justify-center items-center py-10"}>
-      <div className="w-8/12">
-        <Heading variant={"h1"}>{post.title}</Heading>
-        <Heading family={"sans"} variant={"h3"}>
+      <div className="w-5/12">
+        <Heading className={"mb-3 leading-normal font-medium"} shade={"800"} variant={"h1"}>
+          {post.title}
+        </Heading>
+
+        <Heading family={"sans"} className={"mb-8"} variant={"h3"}>
           {post.subTitle}
         </Heading>
 
