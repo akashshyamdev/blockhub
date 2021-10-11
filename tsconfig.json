@@ -8,7 +8,8 @@
       "@models/*": ["models/*"],
       "@styles/*": ["styles/*"],
       "@customTypes/*": ["types/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@lib/*": ["lib/*"]
     },
     "target": "es5",
     "lib": ["esnext"],
