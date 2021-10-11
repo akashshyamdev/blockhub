@@ -1,5 +1,5 @@
 .post {
-  @apply block w-full bg-gray-100 rounded my-1 px-10 py-7 text-gray-700;
+  @apply cursor-pointer block w-full bg-gray-100 rounded my-1 px-10 py-7 text-gray-700;
 
   &__title {
     @apply text-3xl font-medium;
