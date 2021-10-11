@@ -4,5 +4,6 @@ export interface IUser extends Document {
   email: string;
   password: string;
   createdAt: string;
+  image: string;
   comparePasswords(plainPassword: string, hashPassword: string): Promise<boolean>;
 }
