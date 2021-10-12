@@ -11,4 +11,5 @@ export interface IPost extends Document {
   email: string;
   user: IUser;
   createdAt: number;
+  coverImage?: string;
 }
