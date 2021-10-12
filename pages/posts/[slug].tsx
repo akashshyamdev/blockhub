@@ -17,15 +17,15 @@ export default function PostDetails({ post }: PostDetailsProps) {
   return (
     <main className={"flex flex-row justify-center items-center py-10"}>
       <article className="w-5/12">
-        <Heading className={"mb-3 leading-normal font-medium"} shade={"800"} variant={"h1"}>
+        <Heading className={"mb-0 leading-normal font-medium"} shade={"800"} variant={"h1"}>
           {post.title}
         </Heading>
 
-        <Heading family={"sans"} className={"mb-10"} variant={"h3"}>
+        <Heading family={"sans"} className={"mb-5"} variant={"h3"}>
           {post.subTitle}
         </Heading>
 
-        <div className={"flex flex-row gap-x-3 items-center mb-14"}>
+        <div className={"flex flex-row gap-x-3 items-center mb-8"}>
           <div>
             <Image src={post.user.image} width={"44"} height={"44"} className={"rounded-full"} />
           </div>
@@ -36,8 +36,12 @@ export default function PostDetails({ post }: PostDetailsProps) {
           </div>
         </div>
 
+        <div className={"relative w-full"} style={{ height: "31.25rem" }}>
+          <Image src={post.coverImage} layout={"fill"} />
+        </div>
+
         <div
-          className={"font-serif text-xl"}
+          className={"font-serif text-xl mt-14"}
           dangerouslySetInnerHTML={{ __html: snarkdown(post.content) }}
         />
       </article>
