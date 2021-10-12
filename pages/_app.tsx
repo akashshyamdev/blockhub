@@ -5,6 +5,8 @@ import { strings } from "@lib/string";
 import "@styles/globals.scss";
 import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 import "tailwindcss/tailwind.css";
 
 function MyApp({ Component, pageProps }) {
@@ -18,6 +20,18 @@ function MyApp({ Component, pageProps }) {
         <Layout>
           <Component {...pageProps} />
         </Layout>
+
+        <ToastContainer
+          position={"bottom-right"}
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </ChakraProvider>
     </SessionProvider>
   );
