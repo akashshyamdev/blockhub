@@ -14,8 +14,6 @@ const s3 = new AWS.S3({ signatureVersion: "v4" });
 
 export async function uploadFile(file: Blob, path: string) {
   try {
-    console.log(process.env);
-
     const params = {
       Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME,
       Key: path,
@@ -25,8 +23,10 @@ export async function uploadFile(file: Blob, path: string) {
     s3.upload(params, (err, result) => {
       if (err) {
         console.log("Error", err);
+
+        return err;
       } else {
-        console.log("S3 Response", result);
+        return result;
       }
     });
   } catch (err) {
