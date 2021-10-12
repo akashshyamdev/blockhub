@@ -12,7 +12,7 @@ AWS.config.update({
 // New S3 Instance
 const s3 = new AWS.S3({ signatureVersion: "v4" });
 
-export async function uploadFile(file: Blob, path: string) {
+export function uploadFile(file: Blob, path: string) {
   try {
     const params = {
       Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME,
@@ -20,14 +20,16 @@ export async function uploadFile(file: Blob, path: string) {
       Body: file,
     };
 
-    s3.upload(params, (err, result) => {
-      if (err) {
-        console.log("Error", err);
+    return new Promise((resolve, reject) => {
+      s3.upload(params, (err, result) => {
+        if (err) {
+          console.log("Error", err);
 
-        return err;
-      } else {
-        return result;
-      }
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      });
     });
   } catch (err) {
     console.log(err);
@@ -36,15 +38,8 @@ export async function uploadFile(file: Blob, path: string) {
   }
 }
 
-export async function uploadCoverImage(file: Blob) {
-  try {
-    console.log(file);
-    const id = uuid();
+export function uploadCoverImage(file: Blob) {
+  const id = uuid();
 
-    return uploadFile(file, `cover-images/image-${id}`);
-  } catch (err) {
-    console.log(err);
-
-    return err;
-  }
+  return uploadFile(file, `cover-images/image-${id}`);
 }
