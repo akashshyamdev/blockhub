@@ -22,10 +22,10 @@ namespace NodeJS {
     TWITTER_CLIENT_ID: string;
     TWITTER_CLIENT_SECRET: string;
 
-    AWS_ACCESS_KEY: string;
-    AWS_SECRET_KEY: string;
+    NEXT_PUBLIC_AWS_ACCESS_KEY: string;
+    NEXT_PUBLIC_AWS_SECRET_KEY: string;
 
-    AWS_S3_BUCKET_NAME: string;
-    AWS_S3_BUCKET_REGION: string;
+    NEXT_PUBLIC_AWS_S3_BUCKET_NAME: string;
+    NEXT_PUBLIC_AWS_S3_BUCKET_REGION: string;
   }
 }
