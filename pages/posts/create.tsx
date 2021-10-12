@@ -23,8 +23,6 @@ function CreatePost() {
   const createPost = async () => {
     const res = await uploadCoverImage(file);
 
-    console.log(res);
-
     await axios.post(`/api/posts/`, {
       title,
       subTitle,
