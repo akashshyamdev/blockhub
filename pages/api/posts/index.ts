@@ -8,11 +8,11 @@ export const getAllPosts = async () => {
 };
 
 const createPost = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { title, subTitle, email, content } = req.body;
+  const { title, subTitle, email, content, image } = req.body;
 
   const user = await User.findOne({ email });
 
-  const post = await Post.create({ title, subTitle, content, user: user._id });
+  const post = await Post.create({ title, subTitle, content, user: user._id, coverImage: image });
 
   res.status(201).json({ data: post });
 };
