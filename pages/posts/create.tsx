@@ -42,8 +42,6 @@ function CreatePost() {
   };
 
   const updateFile = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.files);
-
     setFile(e.target.files[0]);
   };
 
