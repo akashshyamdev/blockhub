@@ -1,5 +1,6 @@
 import { I18n } from "@aws-amplify/core";
 import Button from "@components/Button/Button";
+import { uploadCoverImage } from "@lib/s3";
 import classes from "@styles/components/preview.module.scss";
 import axios from "axios";
 import { useSession } from "next-auth/react";
@@ -14,16 +15,22 @@ function CreatePost() {
   // Form
   const [title, setTitle] = useState("");
   const [subTitle, setSubTitle] = useState("");
+  const [file, setFile] = useState<File | null>(null);
 
   const [markdown, setMarkdown] = useState("");
   const [result, setResult] = useState("");
 
   const createPost = async () => {
+    const res = await uploadCoverImage(file);
+
+    console.log(res);
+
     await axios.post(`/api/posts/`, {
       title,
       subTitle,
       content: markdown,
       email: data?.user?.email,
+      image: res.Location,
     });
 
     router.push("/");
@@ -36,6 +43,12 @@ function CreatePost() {
     setResult(snarkdown(newMarkdown));
   };
 
+  const updateFile = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.files);
+
+    setFile(e.target.files[0]);
+  };
+
   return (
     <main className={"flex flex-row flex-grow full justify-center py-10"}>
       <div className={"flex flex-col h-full w-8/12 items-center"}>
@@ -43,7 +56,13 @@ function CreatePost() {
           <div className={"mb-3 cursor-pointer"}>
             <label htmlFor="fileInput" className={"border cursor-pointer p-5 rounded"}>
               Add a cover image
-              <input type="file" id={"fileInput"} accept={"image/*"} className={"hidden"} />
+              <input
+                type="file"
+                id={"fileInput"}
+                accept={"image/*"}
+                className={"hidden"}
+                onChange={updateFile}
+              />
             </label>
           </div>
 
