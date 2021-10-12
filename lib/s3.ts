@@ -1,27 +1,34 @@
-import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import * as AWS from "aws-sdk";
 import { v4 as uuid } from "uuid";
 
-const s3Client = new S3Client({ region: process.env.AWS_S3_BUCKET_REGION });
+// AWS SDK Configuration
+AWS.config.update({
+  secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_KEY,
+  accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY,
+  region: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_REGION,
+  signatureVersion: "v4",
+});
 
-export const bucketParams = {
-  Bucket: process.env.AWS_S3_BUCKET_NAME,
-  Key: "OBJECT_NAME",
-  Body: "BODY",
-};
+// New S3 Instance
+const s3 = new AWS.S3({ signatureVersion: "v4" });
 
 export async function uploadFile(file: Blob, path: string) {
   try {
-    const data = await s3Client.send(
-      new PutObjectCommand({
-        Bucket: process.env.AWS_S3_BUCKET_NAME,
-        Key: path,
-        Body: file,
-      })
-    );
+    console.log(process.env);
 
-    console.log(data);
+    const params = {
+      Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME,
+      Key: path,
+      Body: file,
+    };
 
-    return data;
+    s3.upload(params, (err, result) => {
+      if (err) {
+        console.log("Error", err);
+      } else {
+        console.log("S3 Response", result);
+      }
+    });
   } catch (err) {
     console.log(err);
 
@@ -31,9 +38,10 @@ export async function uploadFile(file: Blob, path: string) {
 
 export async function uploadCoverImage(file: Blob) {
   try {
+    console.log(file);
     const id = uuid();
 
-    return uploadFile(file, `cover-image/image-${id}`);
+    return uploadFile(file, `cover-images/image-${id}`);
   } catch (err) {
     console.log(err);
 
