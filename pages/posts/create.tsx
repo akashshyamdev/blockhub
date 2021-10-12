@@ -77,7 +77,7 @@ function CreatePost() {
           />
         </div>
 
-        <div className={"grid w-full h-full grid-cols-2 mt-10"}>
+        <div className={"grid w-full h-full grid-cols-2 mt-3"}>
           <div>
             <textarea
               className={`w-full p-7 h-full overflow-scroll resize-none bg-gray-100 rounded rounded-r-none outline-none`}
