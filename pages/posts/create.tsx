@@ -40,9 +40,16 @@ function CreatePost() {
     <main className={"flex flex-row flex-grow full justify-center py-10"}>
       <div className={"flex flex-col h-full w-8/12 items-center"}>
         <div className={"w-full mb-10"}>
+          <div className={"mb-3 cursor-pointer"}>
+            <label htmlFor="fileInput" className={"border cursor-pointer p-5 rounded"}>
+              Add a cover image
+              <input type="file" id={"fileInput"} accept={"image/*"} className={"hidden"} />
+            </label>
+          </div>
+
           <input
             type="text"
-            className={"w-full text-5xl rounded px-10 py-6 bg-gray-100"}
+            className={"w-full text-5xl rounded mt-5 px-10 py-6 bg-gray-100"}
             onChange={(e) => setTitle(e.target.value)}
             placeholder={I18n.get("createPostTitlePlaceholder")}
           />
