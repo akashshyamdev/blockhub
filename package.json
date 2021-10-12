@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.3.0",
     "@heroicons/react": "^1.0.4",
     "@next-auth/mongodb-adapter": "^0.0.2-next.281",
+    "aws-sdk": "^2.1005.0",
     "axios": "^0.22.0",
     "bcrypt": "^5.0.1",
     "date-fns": "^2.25.0",
