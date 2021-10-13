@@ -1,7 +1,7 @@
 import { IPost } from "@customTypes/post";
 import { formatPostDate } from "@lib/date";
 import { calculateReadingTime } from "@lib/reading";
-import classes from "@styles/components/post.module.scss";
+import classes from "@components/PostList/PostList.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 
