@@ -6,7 +6,7 @@ namespace NodeJS {
     DB_USER: string;
     DB_PASSWORD: string;
 
-    SERVER_URL: string;
+    NEXT_PUBLIC_SERVER_URL: string;
 
     JWT_SECRET: string;
 
