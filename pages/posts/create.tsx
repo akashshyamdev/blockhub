@@ -54,7 +54,7 @@ function CreatePost() {
   const savePost = async () => {
     localStorage.setItem("draft", JSON.stringify({ title, subTitle, content: markdown }));
 
-    toast.success("Saved Draft(except cover image)", {
+    toast.success(I18n.get("savedDraft"), {
       onClose: () => console.log("A"),
     });
   };
