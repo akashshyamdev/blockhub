@@ -128,7 +128,7 @@ function CreatePost() {
           <Button onClick={createPost}>{I18n.get("createPost")}</Button>
 
           <Button onClick={savePost} customClass={"ml-4"}>
-            Save Post
+            {I18n.get("savePost")}
           </Button>
         </div>
       </div>
