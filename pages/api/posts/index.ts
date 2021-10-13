@@ -3,10 +3,6 @@ import User from "@models/User";
 import apiHandler from "@utils/apiHandler";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export const getAllPosts = async () => {
-  return Post.find();
-};
-
 const createPost = async (req: NextApiRequest, res: NextApiResponse) => {
   const { title, subTitle, email, content, image } = req.body;
 
@@ -17,11 +13,21 @@ const createPost = async (req: NextApiRequest, res: NextApiResponse) => {
   res.status(201).json({ data: post });
 };
 
-export default apiHandler({
-  get: async (req, res) => {
-    const posts = await getAllPosts();
+const getAllPosts = async (req, res) => {
+  let query: any = {};
 
-    res.status(200).json({ data: posts });
-  },
+  if (req.query.email) {
+    const user = await User.findOne({ email: req.query.email });
+
+    query.user = user._id;
+  }
+
+  const posts = await Post.find(query);
+
+  res.status(200).json({ data: posts });
+};
+
+export default apiHandler({
+  get: getAllPosts,
   post: createPost,
 });
