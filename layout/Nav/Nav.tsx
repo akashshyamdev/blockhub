@@ -53,6 +53,12 @@ export default function Nav() {
                 </Link>
               </MenuItem>
 
+              <MenuItem>
+                <Link href={"/dashboard"}>
+                  <a>Dashboard</a>
+                </Link>
+              </MenuItem>
+
               <MenuItem onClick={logout}>Logout</MenuItem>
             </MenuList>
           </Menu>
