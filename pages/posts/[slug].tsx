@@ -64,7 +64,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts: IResponseSuccess<IPost[]> = await axios.get(`${process.env.SERVER_URL}/api/posts`);
+  const posts: IResponseSuccess<IPost[]> = await axios.get(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/posts`
+  );
 
   const paths = posts.data.data.map((post) => ({ params: { slug: post.slug } }));
 
