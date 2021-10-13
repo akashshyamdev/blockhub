@@ -77,7 +77,7 @@ function CreatePost() {
         <div className={"w-full mb-10"}>
           <div className={"mb-3 cursor-pointer"}>
             <label htmlFor="fileInput" className={"border cursor-pointer p-5 rounded"}>
-              {file ? "Add" : "Update"} cover image
+              {I18n.get(file ? "updateCoverImage" : "addCoverImage")}
               <input
                 type="file"
                 id={"fileInput"}

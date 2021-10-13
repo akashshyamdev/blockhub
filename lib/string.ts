@@ -7,5 +7,7 @@ export const strings = {
     savePost: "Save Post",
     savedDraft: "Saved Draft(except cover image)",
     publishedPost: "Published Post!",
+    addCoverImage: "Add cover image",
+    updateCoverImage: "Update cover image",
   },
 };
