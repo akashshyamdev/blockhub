@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
 
   const post: IResponseSuccess<IPost> = await axios.get(
-    `${process.env.SERVER_URL}/api/posts/${slug}`
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/posts/${slug}`
   );
 
   return {
@@ -64,6 +64,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  console.log(process.env.NEXT_PUBLIC_SERVER_URL);
   const posts: IResponseSuccess<IPost[]> = await axios.get(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/api/posts`
   );
