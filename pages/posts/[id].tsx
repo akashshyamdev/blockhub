@@ -1,9 +1,11 @@
 import Heading from "@components/Heading/Heading";
 import { IResponseSuccess } from "@customTypes/http";
 import { IPost } from "@customTypes/post";
+import { HeartIcon } from "@heroicons/react/outline";
 import { calculateReadingTime } from "@lib/reading";
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import snarkdown from "snarkdown";
 
@@ -12,11 +14,24 @@ export interface PostDetailsProps {
 }
 
 export default function PostDetails({ post }: PostDetailsProps) {
+  const { data } = useSession();
+
   const time = calculateReadingTime(post);
 
+  const addLike = async () => {
+    await axios.post(`/api/posts/${post.slug}/likes`, { email: data.user.email });
+  };
+
   return (
-    <main className={"flex flex-row justify-center items-center py-10"}>
-      <article className="w-5/12">
+    <main className={"flex flex-row justify-center py-10"}>
+      <aside className={"w-1/12 flex flex-row justify-center pt-4"}>
+        <HeartIcon
+          onClick={addLike}
+          className={"fixed w-7 hero-icon h-7 cursor-pointer text-gray-500"}
+        />
+      </aside>
+
+      <article className="w-6/12 pt-2">
         <Heading className={"mb-0 leading-normal font-medium"} shade={"800"} variant={"h1"}>
           {post.title}
         </Heading>
@@ -45,15 +60,16 @@ export default function PostDetails({ post }: PostDetailsProps) {
           dangerouslySetInnerHTML={{ __html: snarkdown(post.content) }}
         />
       </article>
+      <aside className="w-1/12" />
     </main>
   );
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { slug } = params;
+  const { id } = params;
 
   const post: IResponseSuccess<IPost> = await axios.get(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/posts/${slug}`
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/posts/${id}`
   );
 
   return {
@@ -64,12 +80,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  console.log(process.env.NEXT_PUBLIC_SERVER_URL);
   const posts: IResponseSuccess<IPost[]> = await axios.get(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/api/posts`
   );
 
-  const paths = posts.data.data.map((post) => ({ params: { slug: post.slug } }));
+  const paths = posts.data.data.map((post) => ({ params: { id: post.id } }));
 
   return {
     paths: paths,
