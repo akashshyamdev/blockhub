@@ -6,5 +6,6 @@ export const strings = {
     createPostContentPlaceholder: "Markdown goes here...",
     savePost: "Save Post",
     savedDraft: "Saved Draft(except cover image)",
+    publishedPost: "Published Post!",
   },
 };

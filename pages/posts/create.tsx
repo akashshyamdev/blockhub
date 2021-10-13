@@ -46,7 +46,7 @@ function CreatePost() {
 
     localStorage.removeItem("draft");
 
-    toast.success("Published Post!");
+    toast.success(I18n.get("publishedPost"));
 
     router.push("/");
   };
