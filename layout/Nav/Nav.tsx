@@ -6,14 +6,20 @@ import { BellIcon, BookmarkIcon, SearchIcon } from "@heroicons/react/outline";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 export default function Nav() {
+  const router = useRouter();
   const { data } = useSession();
 
   const [open, setOpen] = useState(false);
 
-  const logout = () => signOut();
+  const logout = () => {
+    signOut();
+
+    router.push("/");
+  };
 
   const openModal = () => setOpen(true);
 
