@@ -1,12 +1,12 @@
-import { Menu,MenuButton,MenuItem,MenuList } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import Button from "@components/Button/Button";
 import Modal from "@components/Modal/Modal";
 import OAuth from "@components/OAuth/OAuth";
-import { BellIcon,BookmarkIcon,SearchIcon } from "@heroicons/react/outline";
-import { signOut,useSession } from "next-auth/react";
+import { BellIcon, BookmarkIcon, SearchIcon } from "@heroicons/react/outline";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import React,{ useState } from "react";
+import React, { useState } from "react";
 
 export default function Nav() {
   const { data } = useSession();
@@ -89,7 +89,7 @@ export default function Nav() {
           "The place where blockchain enthusiasts come together, share their knowledge and meet like-minded people"
         }
         open={open}
-        setOpen={setOpen}
+        closeModal={() => setOpen(false)}
       >
         <OAuth containerClass={"py-16"} />
       </Modal>
