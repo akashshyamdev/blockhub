@@ -1,7 +1,7 @@
+import classes from "@components/PostList/PostList.module.scss";
 import { IPost } from "@customTypes/post";
 import { formatPostDate } from "@lib/date";
 import { calculateReadingTime } from "@lib/reading";
-import classes from "@components/PostList/PostList.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ export default function PostList({ posts }: PostListProps) {
         const time = calculateReadingTime(post);
 
         return (
-          <Link href={{ pathname: `/posts/[slug]`, query: { slug: post.slug } }} key={post._id}>
+          <Link href={{ pathname: `/posts/[id]`, query: { id: post.id } }} key={post._id}>
             <article className={classes.post}>
               <div>
                 <h3 className={classes.post__title}>{post.title}</h3>
