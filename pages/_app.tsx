@@ -12,6 +12,8 @@ import "tailwindcss/tailwind.css";
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     I18n.putVocabularies(strings);
+
+    I18n.setLanguage("en");
   }, []);
 
   return (
