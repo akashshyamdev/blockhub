@@ -75,6 +75,7 @@ function CreatePost() {
       <div className={"flex flex-col h-full w-8/12 items-center"}>
         {/* Heading */}
         <div className={"w-full mb-10"}>
+          {/* Buttons */}
           <div className={"mb-3 cursor-pointer"}>
             <label htmlFor="fileInput" className={"border cursor-pointer p-5 rounded"}>
               {I18n.get(file ? "updateCoverImage" : "addCoverImage")}
@@ -86,6 +87,14 @@ function CreatePost() {
                 onChange={updateFile}
               />
             </label>
+
+            <Button customClass={"ml-16"} onClick={createPost}>
+              {I18n.get("createPost")}
+            </Button>
+
+            <Button onClick={savePost} customClass={"ml-4"}>
+              {I18n.get("savePost")}
+            </Button>
           </div>
 
           <input
@@ -121,15 +130,6 @@ function CreatePost() {
             id="result"
             dangerouslySetInnerHTML={{ __html: result }}
           />
-        </div>
-
-        {/* Buttons */}
-        <div className={"mt-8 flex w-full flex-row justify-start"}>
-          <Button onClick={createPost}>{I18n.get("createPost")}</Button>
-
-          <Button onClick={savePost} customClass={"ml-4"}>
-            {I18n.get("savePost")}
-          </Button>
         </div>
       </div>
     </main>
