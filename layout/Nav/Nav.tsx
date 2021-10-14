@@ -1,19 +1,25 @@
-import { Menu,MenuButton,MenuItem,MenuList } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import Button from "@components/Button/Button";
 import Modal from "@components/Modal/Modal";
 import OAuth from "@components/OAuth/OAuth";
-import { BellIcon,BookmarkIcon,SearchIcon } from "@heroicons/react/outline";
-import { signOut,useSession } from "next-auth/react";
+import { BellIcon, BookmarkIcon, SearchIcon } from "@heroicons/react/outline";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import React,{ useState } from "react";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 
 export default function Nav() {
+  const router = useRouter();
   const { data } = useSession();
 
   const [open, setOpen] = useState(false);
 
-  const logout = () => signOut();
+  const logout = () => {
+    signOut();
+
+    router.push("/");
+  };
 
   const openModal = () => setOpen(true);
 
@@ -53,6 +59,12 @@ export default function Nav() {
                 </Link>
               </MenuItem>
 
+              <MenuItem>
+                <Link href={"/dashboard"}>
+                  <a>Dashboard</a>
+                </Link>
+              </MenuItem>
+
               <MenuItem onClick={logout}>Logout</MenuItem>
             </MenuList>
           </Menu>
@@ -89,7 +101,7 @@ export default function Nav() {
           "The place where blockchain enthusiasts come together, share their knowledge and meet like-minded people"
         }
         open={open}
-        setOpen={setOpen}
+        closeModal={() => setOpen(false)}
       >
         <OAuth containerClass={"py-16"} />
       </Modal>

@@ -22,7 +22,7 @@ export default function Heading({
 
   return (
     <>
-      {variant === "h1" && <h1 className={`${classes.h1}`}>{children}</h1>}
+      {variant === "h1" && <h1 className={`${classes.h1} ${fixedClasses}`}>{children}</h1>}
 
       {variant === "h2" && <h2 className={`${classes.h2} ${fixedClasses}`}>{children}</h2>}
 

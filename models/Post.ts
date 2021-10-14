@@ -16,10 +16,17 @@ const postSchema = new Schema(
       type: String,
       required: [true, "Please specify markdown content"],
     },
+    coverImage: String,
     user: {
       type: Types.ObjectId,
       ref: "User",
     },
+    comments: [
+      {
+        type: Types.ObjectId,
+        ref: "Comment",
+      },
+    ],
   },
   {
     toJSON: { virtuals: true },

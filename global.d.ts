@@ -6,7 +6,7 @@ namespace NodeJS {
     DB_USER: string;
     DB_PASSWORD: string;
 
-    SERVER_URL: string;
+    NEXT_PUBLIC_SERVER_URL: string;
 
     JWT_SECRET: string;
 
@@ -21,5 +21,11 @@ namespace NodeJS {
 
     TWITTER_CLIENT_ID: string;
     TWITTER_CLIENT_SECRET: string;
+
+    NEXT_PUBLIC_AWS_ACCESS_KEY: string;
+    NEXT_PUBLIC_AWS_SECRET_KEY: string;
+
+    NEXT_PUBLIC_AWS_S3_BUCKET_NAME: string;
+    NEXT_PUBLIC_AWS_S3_BUCKET_REGION: string;
   }
 }

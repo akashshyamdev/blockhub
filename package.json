@@ -6,15 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch"
   },
   "dependencies": {
     "@aws-amplify/core": "^4.3.2",
+    "@aws-sdk/client-s3": "^3.36.0",
     "@chakra-ui/react": "^1.6.9",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@heroicons/react": "^1.0.4",
     "@next-auth/mongodb-adapter": "^0.0.2-next.281",
+    "aws-sdk": "^2.1005.0",
     "axios": "^0.22.0",
     "bcrypt": "^5.0.1",
     "date-fns": "^2.25.0",
@@ -24,9 +27,12 @@
     "next-auth": "^4.0.0-beta.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-dropzone": "^11.4.2",
+    "react-toastify": "^8.0.3",
     "sass": "^1.42.1",
     "slugify": "^1.6.1",
-    "snarkdown": "^2.0.0"
+    "snarkdown": "^2.0.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -35,6 +41,7 @@
     "@types/jest-axe": "^3.5.3",
     "autoprefixer": "^10.3.7",
     "babel-jest": "^27.2.4",
+    "cypress": "^8.6.0",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
     "identity-obj-proxy": "^3.0.0",
@@ -44,7 +51,8 @@
     "prettier": "^2.4.1",
     "prettier-plugin-organize-imports": "^2.3.4",
     "react-test-renderer": "^17.0.2",
-    "tailwindcss": "^2.2.16"
+    "tailwindcss": "^2.2.16",
+    "ts-node": "^10.3.0"
   },
   "optionalDependencies": {
     "mongodb": "^4.1.3"

@@ -1,5 +1,5 @@
 .post {
-  @apply block w-full bg-gray-100 rounded my-1 px-10 py-7 text-gray-700;
+  @apply flex flex-row justify-between items-center cursor-pointer block w-full bg-gray-100 rounded my-1 px-10 py-7 text-gray-700;
 
   &__title {
     @apply text-3xl font-medium;
@@ -15,5 +15,13 @@
 
   &__separator {
     @apply bg-gray-300 h-2 w-2 rounded-full;
+  }
+
+  &__cover {
+    @apply relative w-48 h-32;
+  }
+
+  &__coverImage {
+    @apply rounded;
   }
 }

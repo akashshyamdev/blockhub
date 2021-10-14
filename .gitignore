@@ -36,3 +36,6 @@ yarn-error.log*
 # IDE
 vscode
 .idea
+
+# images
+temp
